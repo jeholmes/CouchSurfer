@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+  android:src="@drawable/sf__nav_shadow"
+  android:tileMode="repeat"
+/>
+<!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/libs/SalesforceSDK/res/drawable-xlarge/sf__header_drop_shadow.xml --><!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/CouchSurfer.libs/SalesforceSDK/unspecified/res/drawable-xlarge/sf__header_drop_shadow.xml -->

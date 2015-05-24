@@ -1,0 +1,449 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	package
+		ADDED from AndroidManifest.xml:3:5
+	android:versionName
+		ADDED from AndroidManifest.xml:6:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:5:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:installLocation
+		ADDED from AndroidManifest.xml:4:5
+uses-sdk
+ADDED from AndroidManifest.xml:8:5
+MERGED from CouchSurfer.libs:SalesforceSDK:unspecified:7:5
+MERGED from CouchSurfer.external:cordova:unspecified:25:5
+MERGED from com.google.android.gms:play-services:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-ads:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-analytics:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-analytics:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-appindexing:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-appinvite:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-appstate:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-cast:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-drive:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-fitness:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-location:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-games:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-drive:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-gcm:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-identity:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-location:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-nearby:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-panorama:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-plus:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-safetynet:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-wallet:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-identity:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.google.android.gms:play-services-wearable:7.3.0:18:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+MERGED from com.android.support:appcompat-v7:22.1.1:20:5
+MERGED from com.android.support:support-v4:22.1.1:20:5
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:10:9
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:9:9
+permission#com.jeholmes.couchsurf.C2D_MESSAGE
+ADDED from AndroidManifest.xml:17:5
+	android:protectionLevel
+		ADDED from AndroidManifest.xml:19:9
+	android:name
+		ADDED from AndroidManifest.xml:18:9
+uses-permission#com.jeholmes.couchsurf.C2D_MESSAGE
+ADDED from AndroidManifest.xml:21:5
+	android:name
+		ADDED from AndroidManifest.xml:21:22
+android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:23:5
+	android:maxSdkVersion
+		ADDED from AndroidManifest.xml:25:9
+	android:name
+		ADDED from AndroidManifest.xml:24:9
+android:uses-permission#android.permission.READ_PHONE_STATE
+ADDED from AndroidManifest.xml:26:5
+	android:name
+		ADDED from AndroidManifest.xml:26:30
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:27:5
+	android:maxSdkVersion
+		ADDED from AndroidManifest.xml:29:9
+	android:name
+		ADDED from AndroidManifest.xml:28:9
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:31:5
+MERGED from CouchSurfer.libs:SalesforceSDK:unspecified:14:5
+	android:name
+		ADDED from AndroidManifest.xml:31:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:32:5
+MERGED from CouchSurfer.libs:SalesforceSDK:unspecified:11:5
+	android:name
+		ADDED from AndroidManifest.xml:32:22
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from AndroidManifest.xml:33:5
+	android:name
+		ADDED from AndroidManifest.xml:33:22
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from AndroidManifest.xml:38:5
+	android:name
+		ADDED from AndroidManifest.xml:38:22
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from AndroidManifest.xml:39:5
+	android:name
+		ADDED from AndroidManifest.xml:39:22
+application
+ADDED from AndroidManifest.xml:41:5
+MERGED from CouchSurfer.libs:SalesforceSDK:unspecified:21:5
+MERGED from com.google.android.gms:play-services:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-ads:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-analytics:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-analytics:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-appindexing:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-appinvite:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-appstate:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-cast:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-drive:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-fitness:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-location:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-games:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-drive:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-gcm:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-identity:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-location:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-nearby:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-panorama:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-plus:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-safetynet:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-wallet:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-identity:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-maps:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.google.android.gms:play-services-wearable:7.3.0:19:5
+MERGED from com.google.android.gms:play-services-base:7.3.0:20:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+MERGED from com.android.support:appcompat-v7:22.1.1:22:5
+MERGED from com.android.support:support-v4:22.1.1:22:5
+	android:label
+		ADDED from AndroidManifest.xml:44:9
+	android:icon
+		ADDED from AndroidManifest.xml:43:9
+	android:manageSpaceActivity
+		ADDED from AndroidManifest.xml:45:9
+	android:name
+		ADDED from AndroidManifest.xml:42:9
+activity#com.jeholmes.couchsurf.MainActivity
+ADDED from AndroidManifest.xml:48:9
+	android:label
+		ADDED from AndroidManifest.xml:50:13
+	android:theme
+		ADDED from AndroidManifest.xml:51:13
+	android:name
+		ADDED from AndroidManifest.xml:49:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:52:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:53:17
+	android:name
+		ADDED from AndroidManifest.xml:53:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:55:17
+	android:name
+		ADDED from AndroidManifest.xml:55:27
+activity#com.jeholmes.couchsurf.DetailActivity
+ADDED from AndroidManifest.xml:58:9
+	android:label
+		ADDED from AndroidManifest.xml:60:13
+	android:theme
+		ADDED from AndroidManifest.xml:61:13
+	android:name
+		ADDED from AndroidManifest.xml:59:13
+activity#com.jeholmes.couchsurf.MapsActivity
+ADDED from AndroidManifest.xml:63:9
+	android:label
+		ADDED from AndroidManifest.xml:65:13
+	android:name
+		ADDED from AndroidManifest.xml:64:13
+meta-data#com.google.android.gms.version
+ADDED from AndroidManifest.xml:68:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+MERGED from com.google.android.gms:play-services-base:7.3.0:21:9
+	android:name
+		ADDED from AndroidManifest.xml:69:13
+	android:value
+		ADDED from AndroidManifest.xml:70:13
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from AndroidManifest.xml:71:9
+	android:name
+		ADDED from AndroidManifest.xml:72:13
+	android:value
+		ADDED from AndroidManifest.xml:73:13
+uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:12:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:12:22
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:13:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:13:22
+uses-permission#android.permission.MANAGE_ACCOUNTS
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:15:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:15:22
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:16:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:16:22
+uses-permission#android.permission.WAKE_LOCK
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:17:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:17:22
+uses-permission#android.permission.GET_TASKS
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:18:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:18:22
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:19:5
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:19:22
+service#com.salesforce.androidsdk.auth.AuthenticatorService
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:24:9
+	android:exported
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:26:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:25:13
+intent-filter#android.accounts.AccountAuthenticator
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:27:13
+action#android.accounts.AccountAuthenticator
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:28:17
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:28:25
+meta-data#android.accounts.AccountAuthenticator
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:31:13
+	android:resource
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:33:17
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:32:17
+activity#com.salesforce.androidsdk.ui.LoginActivity
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:37:9
+	android:theme
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:39:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:38:13
+activity#com.salesforce.androidsdk.ui.PasscodeActivity
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:42:9
+	android:theme
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:44:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:43:13
+activity#com.salesforce.androidsdk.ui.ManageSpaceActivity
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:47:9
+	android:theme
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:50:13
+	android:excludeFromRecents
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:49:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:48:13
+activity#com.salesforce.androidsdk.ui.ServerPickerActivity
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:53:9
+	android:theme
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:56:13
+	android:excludeFromRecents
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:55:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:54:13
+activity#com.salesforce.androidsdk.ui.AccountSwitcherActivity
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:59:9
+	android:theme
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:62:13
+	android:excludeFromRecents
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:61:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:60:13
+receiver#com.salesforce.androidsdk.push.PushBroadcastReceiver
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:68:9
+	android:exported
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:70:13
+	android:permission
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:71:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:69:13
+intent-filter#@string/app_package+com.google.android.c2dm.intent.RECEIVE
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:72:13
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:73:17
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:73:25
+category#@string/app_package
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:75:17
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:75:27
+intent-filter#@string/app_package+com.google.android.c2dm.intent.REGISTRATION
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:77:13
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:78:17
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:78:25
+receiver#com.salesforce.androidsdk.push.PushService$RetryRegistrationAlarmReceiver
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:83:9
+	android:exported
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:85:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:84:13
+receiver#com.salesforce.androidsdk.push.PushService$SFDCRegistrationRetryAlarmReceiver
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:86:9
+	android:exported
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:88:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:87:13
+receiver#com.salesforce.androidsdk.push.PushService$UnregisterRetryAlarmReceiver
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:89:9
+	android:exported
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:91:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:90:13
+service#com.salesforce.androidsdk.push.PushService
+ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:93:9
+	android:exported
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:95:13
+	android:name
+		ADDED from CouchSurfer.libs:SalesforceSDK:unspecified:94:13

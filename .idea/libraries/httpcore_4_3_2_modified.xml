@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="httpcore-4.3.2-modified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/SalesforceSDK/libs/httpcore-4.3.2-modified.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

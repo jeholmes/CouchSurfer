@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="account_type">com.jeholmes.couchsurf.login</string>
+	<string name="app_name"><b>CouchSurfer</b></string>
+	<string name="app_package">com.jeholmes.couchsurf</string>
+    <string name="welcome">Welcome %s</string>
+	<string name="logout_button">Logout</string>
+	<string name="fetch_contacts_button">Fetch Contacts</string>
+	<string name="fetch_accounts_button">Fetch Accounts</string>
+	<string name="properties_button">Properties</string>
+	<string name="clear_button">Clear</string>
+
+    <string name="name_label">Name</string>
+    <string name="lat_label">Latitude</string>
+    <string name="lng_label">Longitude</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="mylocation">My Location</string>
+    <string name="search">Search Address</string>
+
+    <string name="update_button">Update</string>
+    <string name="map_button">Map</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="address_search">Search by address</string>
+
+</resources>

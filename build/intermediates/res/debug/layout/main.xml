@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:background="#454545"
+	android:id="@+id/root">
+
+	<include layout="@layout/header" />
+
+	<LinearLayout android:orientation="horizontal" android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+
+		<EditText
+			android:id="@+id/address_field"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:hint="@string/address_search"/>
+
+		<ImageButton
+			android:id="@+id/search_button"
+			android:scaleType="fitCenter"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:padding="5dp"
+			android:onClick="onSearchClick"
+			android:contentDescription="@string/search"
+			android:src="@drawable/ic_menu_search" />
+
+		<ImageButton
+			android:id="@+id/my_location_button"
+			android:scaleType="fitCenter"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:layout_gravity="end"
+			android:padding="5dp"
+			android:onClick="onMyLocationClick"
+			android:contentDescription="@string/mylocation"
+			android:src="@drawable/ic_menu_mylocation" />
+
+		<Button android:id="@+id/map" android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="onMapClick"
+			android:text="@string/map_button" />
+
+	</LinearLayout>
+	
+	<ListView android:id="@+id/contacts_list" android:layout_width="match_parent"
+	          android:layout_height="match_parent" />
+</LinearLayout>
+<!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/layout/main.xml -->

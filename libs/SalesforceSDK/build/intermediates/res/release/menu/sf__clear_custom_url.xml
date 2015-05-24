@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item android:id="@+id/sf__menu_clear_custom_url"
+	    android:title="@string/sf__server_url_reset" />
+</menu>
+<!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/libs/SalesforceSDK/res/menu/sf__clear_custom_url.xml -->

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<bitmap android:src="@drawable/sf__header_bg" />
+	</item>
+</layer-list>
+<!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/libs/SalesforceSDK/res/drawable-xlarge/sf__login_content_header.xml --><!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/libs/SalesforceSDK/build/intermediates/bundles/debug/res/drawable-xlarge/sf__login_content_header.xml -->

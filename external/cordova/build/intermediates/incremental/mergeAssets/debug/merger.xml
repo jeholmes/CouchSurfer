@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Jon\Documents\GitHub\CouchSurfer\external\cordova\assets"><file name="www/cordova.js" path="C:\Users\Jon\Documents\GitHub\CouchSurfer\external\cordova\assets\www\cordova.js"/><file name="www/index.html" path="C:\Users\Jon\Documents\GitHub\CouchSurfer\external\cordova\assets\www\index.html"/></source></dataSet><dataSet config="debug"><source path="C:\Users\Jon\Documents\GitHub\CouchSurfer\external\cordova\src\debug\assets"/></dataSet></merger>

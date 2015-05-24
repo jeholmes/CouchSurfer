@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"  android:drawable="@drawable/sf__header_refresh_press"/>
+    <item android:state_selected="false" android:drawable="@drawable/sf__header_refresh" />
+</selector>
+<!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/libs/SalesforceSDK/res/drawable-xlarge/sf__header_refresh_states.xml --><!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/libs/SalesforceSDK/build/intermediates/bundles/debug/res/drawable-xlarge/sf__header_refresh_states.xml -->
