@@ -323,6 +323,9 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="commono_google_play_services_api_unavailable_text">This app requires one or more Google Play services that are not currently
 available. Please contact the developer for assistance.</string>
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="coords_button">\u003F</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.3.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
@@ -330,6 +333,7 @@ available. Please contact the developer for assistance.</string>
     <string name="decline">Decline</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/strings.xml -->
     <eat-comment/>
+    <string name="detail_button">Go</string>
     <string name="fetch_accounts_button">Fetch Accounts</string>
     <string name="fetch_contacts_button">Fetch Contacts</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/CouchSurfer.external/cordova/unspecified/res/values/values.xml -->
@@ -419,7 +423,7 @@ available. Please contact the developer for assistance.</string>
     <eat-comment/>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="update_button">Update</string>
+    <string name="update_button">Check In</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.3.0/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>

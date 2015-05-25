@@ -8,58 +8,54 @@
 
     <include layout="@layout/header" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/property_name"
+        android:layout_gravity="center" />
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/property_id"
+        android:layout_gravity="center" />-->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name_label"
-            android:width="100dp" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Total Couches: "
+            android:id="@+id/total_label" />
 
-        <EditText
-            android:id="@+id/name_field"
-            android:layout_width="fill_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:id="@+id/property_total" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lat_label"
-            android:width="100dp" />
-
-        <EditText
-            android:id="@+id/lat_field"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Available Couches: "
+            android:id="@+id/avail_label" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lng_label"
-            android:width="100dp" />
-
-        <EditText
-            android:id="@+id/lng_field"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:id="@+id/property_avail" />
     </LinearLayout>
 
     <Button

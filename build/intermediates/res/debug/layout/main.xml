@@ -1,50 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="match_parent"
-	android:layout_height="match_parent" android:background="#454545"
+	android:layout_height="match_parent" android:background="@drawable/background"
 	android:id="@+id/root">
 
-	<include layout="@layout/header" />
+	<include layout="@layout/header"
+		android:id="@+id/header" />
 
-	<LinearLayout android:orientation="horizontal" android:layout_width="match_parent"
-	    android:layout_height="wrap_content">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-		<EditText
-			android:id="@+id/address_field"
+		<Space
+			android:layout_width="fill_parent"
+			android:layout_height="25dp" />
+
+		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="text"
-			android:hint="@string/address_search"/>
-
-		<ImageButton
-			android:id="@+id/search_button"
-			android:scaleType="fitCenter"
-			android:layout_width="50dp"
-			android:layout_height="50dp"
-			android:padding="5dp"
-			android:onClick="onSearchClick"
-			android:contentDescription="@string/search"
-			android:src="@drawable/ic_menu_search" />
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="Search by GPS"
+			android:id="@+id/gps_search"
+            android:layout_gravity="center_horizontal"
+			android:phoneNumber="false" />
 
 		<ImageButton
 			android:id="@+id/my_location_button"
 			android:scaleType="fitCenter"
-			android:layout_width="50dp"
-			android:layout_height="50dp"
-			android:layout_gravity="end"
+			android:layout_width="100dp"
+			android:layout_height="100dp"
+			android:layout_gravity="center_horizontal"
 			android:padding="5dp"
 			android:onClick="onMyLocationClick"
 			android:contentDescription="@string/mylocation"
-			android:src="@drawable/ic_menu_mylocation" />
+			android:src="@drawable/ic_menu_mylocation"
+			android:background="#00004bb4" />
 
-		<Button android:id="@+id/map" android:layout_width="wrap_content"
+		<Space
+			android:layout_width="fill_parent"
+			android:layout_height="25dp" />
+
+		<TextView
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:onClick="onMapClick"
-			android:text="@string/map_button" />
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="OR"
+			android:id="@+id/or"
+			android:layout_gravity="center_horizontal" />
+
+		<Space
+			android:layout_width="fill_parent"
+			android:layout_height="25dp" />
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal">
+
+			<EditText
+				android:id="@+id/address_field"
+				android:layout_width="250dp"
+				android:layout_height="fill_parent"
+				android:inputType="text"
+				android:hint="@string/address_search"
+				android:layout_gravity="center"
+				android:background="@drawable/rounded_edittext"
+				android:textColor="#ff000000"
+				android:padding="10dp" />
+
+			<ImageButton
+				android:id="@+id/search_button"
+				android:scaleType="fitCenter"
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:padding="5dp"
+				android:onClick="onSearchClick"
+				android:contentDescription="@string/search"
+				android:src="@drawable/ic_menu_search"
+				android:background="@drawable/rounded_button" />
+		</LinearLayout>
 
 	</LinearLayout>
-	
-	<ListView android:id="@+id/contacts_list" android:layout_width="match_parent"
-	          android:layout_height="match_parent" />
+
 </LinearLayout>
 <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/layout/main.xml -->

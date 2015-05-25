@@ -17,12 +17,14 @@
     <string name="mylocation">My Location</string>
     <string name="search">Search Address</string>
 
-    <string name="update_button">Update</string>
+    <string name="update_button">Check In</string>
     <string name="map_button">Map</string>
+    <string name="coords_button">\u003F</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="address_search">Search by address</string>
+    <string name="detail_button">Go</string>
 
 </resources>

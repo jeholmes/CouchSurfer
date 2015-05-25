@@ -8,17 +8,17 @@ package org.apache.cordova;
 
 public final class R {
 	public static final class drawable {
-		public static final int icon = 0x7f02005d;
-		public static final int splash = 0x7f020072;
+		public static final int icon = 0x7f02005f;
+		public static final int splash = 0x7f02007b;
 	}
 	public static final class id {
 	}
 	public static final class layout {
-		public static final int main = 0x7f03001b;
+		public static final int main = 0x7f03001c;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f070037;
-		public static final int go = 0x7f07003f;
+		public static final int go = 0x7f070041;
 	}
 	public static final class xml {
 		public static final int config = 0x7f050001;
