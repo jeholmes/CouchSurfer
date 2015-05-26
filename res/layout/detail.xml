@@ -4,16 +4,24 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#454545">
+    android:background="@drawable/background">
 
     <include layout="@layout/header" />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/property_name"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_detail_text"
+        android:textStyle="bold"
+        android:text="Property"
+        android:padding="5dp" />
 
     <!--<TextView
         android:layout_width="wrap_content"
@@ -22,47 +30,92 @@
         android:id="@+id/property_id"
         android:layout_gravity="center" />-->
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Total Couches: "
-            android:id="@+id/total_label" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/property_total" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Available Couches: "
-            android:id="@+id/avail_label" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/property_avail" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/update_button"
+    <Space
         android:layout_width="fill_parent"
+        android:layout_height="25dp" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/spinner_group">
+    </LinearLayout>
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="25dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_detail_text"
         android:layout_height="wrap_content"
-        android:onClick="onUpdateClick"
-        android:text="@string/update_button" />
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Couches: "
+                android:layout_gravity="start"
+                android:id="@+id/total_label" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/property_total"
+                android:layout_gravity="end" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available Couches: "
+                android:id="@+id/avail_label"
+                android:layout_gravity="start" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/property_avail"
+                android:layout_gravity="end" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="25dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/update_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onUpdateClick"
+            android:text="@string/update_button"
+            android:layout_gravity="center_horizontal"
+            android:textSize="36dp"
+            android:background="@drawable/rounded_fullbutton"
+            android:textColor="#ffffffff"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp" />
+    </FrameLayout>
 
 </LinearLayout>

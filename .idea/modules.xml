@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/external/cordova/cordova.iml" filepath="$PROJECT_DIR$/external/cordova/cordova.iml" />
       <module fileurl="file://$PROJECT_DIR$/external/external.iml" filepath="$PROJECT_DIR$/external/external.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/SalesforceSDK/libs/volley/volley.iml" filepath="$PROJECT_DIR$/libs/SalesforceSDK/libs/volley/volley.iml" />
     </modules>
   </component>
 </project>

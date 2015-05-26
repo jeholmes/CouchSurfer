@@ -23,7 +23,8 @@
 			android:text="Search by GPS"
 			android:id="@+id/gps_search"
             android:layout_gravity="center_horizontal"
-			android:phoneNumber="false" />
+			android:phoneNumber="false"
+			android:layout_marginBottom="10dp" />
 
 		<ImageButton
 			android:id="@+id/my_location_button"
@@ -35,7 +36,7 @@
 			android:onClick="onMyLocationClick"
 			android:contentDescription="@string/mylocation"
 			android:src="@drawable/ic_menu_mylocation"
-			android:background="#00004bb4" />
+			android:background="@drawable/circle_button" />
 
 		<Space
 			android:layout_width="fill_parent"

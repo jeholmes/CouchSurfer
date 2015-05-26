@@ -233,13 +233,13 @@ public class MainActivity extends SalesforceActivity {
                 e.printStackTrace();
             }
 
-            HttpClient client = new DefaultHttpClient();
+            HttpClient httpclient = new DefaultHttpClient();
             HttpResponse response;
             StringBuilder stringBuilder = new StringBuilder();
 
             Log.v("geocode","before http get");
             try {
-                response = client.execute(httpGet);
+                response = httpclient.execute(httpGet);
                 HttpEntity entity = response.getEntity();
                 InputStream stream = entity.getContent();
                 int b;
@@ -277,7 +277,7 @@ public class MainActivity extends SalesforceActivity {
 
             try {
                 int i = 0;
-                while (userLat == 0.0 && userLng == 0.0 && i < 15) {
+                while (userLat == 0.0 && userLng == 0.0 && i < 60) {
                     try {
                         // Wait a second
                         Thread.sleep(1000);

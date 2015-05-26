@@ -1,1 +1,2 @@
-include ':libs:SalesforceSDK', ':external:cordova', ':'
+include ':libs:SalesforceSDK', ':external:cordova', ':', ':libs:volley'
+project(':libs:volley').projectDir = new File('libs/SalesforceSDK/libs/volley')

@@ -2,53 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\httpcore-4.3.2-modified.jar"
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.external\cordova\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="bd42922606607bbc99fbd44c05235f6c82103d2c">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\httpcore-4.3.2-modified-2cd544f21af9c03c5118951daa03ea4e5a2920c6.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="e35fae1b377c23aa5fd2d309a190c2d0f73d54ec">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-b1a8b462e062dd1f734c7b5e18c41136bdc8aac0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-1cd8f6dd607674415522a74002eb1bd1b5800f41.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="565a01f90f1529f73362707c4c185d0623a68782">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-5c304fcdfa34670b9c1bb1b2effd3922680539ad.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\volley_android-4.4.2_r2.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="cc41ddaeb1645db24b95433179573e7979ec09ff">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\volley_android-4.4.2_r2-d2838baeee11556f9bcfc49de0df81482a384ce9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="f2f7ec211ce4d244ee97a57523eeb4526dc3cf8a">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-a368118788d2558af9a85ab41c38becf0d6be095.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="0708ef60917bf94913fe9ef972a655b99462dca7">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-3769a6e22a2727530889f1561cefdb303275dff9.jar" />
+        sha1="298eda17ac8d58671fc9ddcd716e5e1b4b38b901">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-2802773aadf09cdb5b8300a31b8cb463719d3e88.jar" />
     </item>
     <item
         jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.3.0\jars\classes.jar"
@@ -58,46 +16,18 @@
         <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-75a1ad78d0eb62535bbf6bf6c606892412e8fff8.jar" />
     </item>
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.3.0\jars\classes.jar"
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.3.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="4f4fe3c23776540625f3c2844152a7510fddf9f1">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-971acb91874f81aefd168a1b945518afbf9d6fab.jar" />
+        sha1="565a01f90f1529f73362707c4c185d0623a68782">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-5c304fcdfa34670b9c1bb1b2effd3922680539ad.jar" />
     </item>
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.external\cordova\unspecified\jars\classes.jar"
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.3.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="69e45be47c3f94a3be9fd184892cad1b2d33ba39">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-2802773aadf09cdb5b8300a31b8cb463719d3e88.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-2425798ad497019ccb3158b6c11381ceb0c24c76.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-539fbc4f2e95c316ed4f6f601d44dc5ed5dea82c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="bb36004beb02b69562cbec9aa7d6a3cf16bf5d1b">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-da8e4b1374d3552c3b1f08e2405fec0beb26bd8c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-472a08c50908be6594ae2bf1294e3a6132db94ea.jar" />
+        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-e8741f17126bc2da723af50e6b12a04753965595.jar" />
     </item>
     <item
         jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.3.0\jars\classes.jar"
@@ -107,31 +37,10 @@
         <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-5b371caee3645defca0cc4de539370bbfe45a129.jar" />
     </item>
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="0180d031a7b54dabb93b4af3869468b55dc938bd">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-6ae70090a8fa88ac82e5eb4d150b5075df809d9b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-97769fd8a777135845a86202eebe8128b6621d06.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="b2c07cdb814fe988ad05f7b4d767a841514a5991">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-60f435d9ec3185a0dc93df4b22719bfd324c2d00.jar" />
-    </item>
-    <item
         jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="36c4d906666142f828d3bc119f83bee15ac65815">
+        sha1="798ddef1388b4c34e9b973edd75c737baf93d70d">
         <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-92f1577a97f43a4adba16fbd6a2a2810228bc31f.jar" />
     </item>
     <item
@@ -156,46 +65,11 @@
         <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-e9185ac458a2bddbd492c3b46a56570623f3bea4.jar" />
     </item>
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.3.0\jars\classes.jar"
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.3.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-ceb58269bd5466e672bd9f90c22da313b007e199.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="59652857a825fff0de62166fca1bc9553cc01abb">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-0d98932e23f6982ffb12aedd4e206f55f2b7fc13.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-3f9074b8781364b68599bdadf2d690812815c852.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="5ea948d825957be6c4358c48422bee60eef2d487">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-f57f5948be735cb050475f2ff7fab58693814d37.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\httpmime-4.3.2.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="3202421d9425ced69919b282afa644e7ef0e8fef">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\httpmime-4.3.2-1e962fafc16ce1418eb36c02549d355392dd266c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="a0ce76dfaccbfbd6c551ed2174280aaabe60fe47">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-e5c5ce13ccb86ac460fc2e4c81f057900548449e.jar" />
+        sha1="0708ef60917bf94913fe9ef972a655b99462dca7">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-3769a6e22a2727530889f1561cefdb303275dff9.jar" />
     </item>
     <item
         jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.3.0\jars\classes.jar"
@@ -205,11 +79,109 @@
         <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-4fce929c93512efbfee347e03b72b9ab3c8ba8c9.jar" />
     </item>
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.3.0\jars\classes.jar"
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.3.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-e8741f17126bc2da723af50e6b12a04753965595.jar" />
+        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-ceb58269bd5466e672bd9f90c22da313b007e199.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="0180d031a7b54dabb93b4af3869468b55dc938bd">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-6ae70090a8fa88ac82e5eb4d150b5075df809d9b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="b2c07cdb814fe988ad05f7b4d767a841514a5991">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-60f435d9ec3185a0dc93df4b22719bfd324c2d00.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\guava-18.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\guava-18.0-a45d6e032bff2f6bd1fa28606c9142b1af06f056.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="5ea948d825957be6c4358c48422bee60eef2d487">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-f57f5948be735cb050475f2ff7fab58693814d37.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e35fae1b377c23aa5fd2d309a190c2d0f73d54ec">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-b1a8b462e062dd1f734c7b5e18c41136bdc8aac0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-472a08c50908be6594ae2bf1294e3a6132db94ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="59652857a825fff0de62166fca1bc9553cc01abb">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-0d98932e23f6982ffb12aedd4e206f55f2b7fc13.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-2425798ad497019ccb3158b6c11381ceb0c24c76.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\httpcore-4.3.2-modified.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="bd42922606607bbc99fbd44c05235f6c82103d2c">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\httpcore-4.3.2-modified-2cd544f21af9c03c5118951daa03ea4e5a2920c6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="bb36004beb02b69562cbec9aa7d6a3cf16bf5d1b">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-da8e4b1374d3552c3b1f08e2405fec0beb26bd8c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\httpmime-4.3.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="3202421d9425ced69919b282afa644e7ef0e8fef">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\httpmime-4.3.2-1e962fafc16ce1418eb36c02549d355392dd266c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-97769fd8a777135845a86202eebe8128b6621d06.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-539fbc4f2e95c316ed4f6f601d44dc5ed5dea82c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-1cd8f6dd607674415522a74002eb1bd1b5800f41.jar" />
     </item>
     <item
         jar="C:\Program Files\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
@@ -219,11 +191,39 @@
         <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-2558881e6d15300e071eba14036c50c448b22b70.jar" />
     </item>
     <item
-        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\SalesforceSDK\unspecified\jars\libs\guava-18.0.jar"
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\CouchSurfer.libs\volley\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="cce0823396aa693798f8882e64213b1772032b09">
-        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\guava-18.0-a45d6e032bff2f6bd1fa28606c9142b1af06f056.jar" />
+        sha1="8dd9175cfc17d5b8845ed7b293859e2888bb5f59">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-3bd69869429d75082524082a2a446e83cf8c5c44.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-3f9074b8781364b68599bdadf2d690812815c852.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="f2f7ec211ce4d244ee97a57523eeb4526dc3cf8a">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-a368118788d2558af9a85ab41c38becf0d6be095.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="a0ce76dfaccbfbd6c551ed2174280aaabe60fe47">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-e5c5ce13ccb86ac460fc2e4c81f057900548449e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="4f4fe3c23776540625f3c2844152a7510fddf9f1">
+        <dex dex="C:\Users\Jon\Documents\GitHub\CouchSurfer\build\intermediates\pre-dexed\debug\classes-971acb91874f81aefd168a1b945518afbf9d6fab.jar" />
     </item>
 
 </items>

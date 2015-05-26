@@ -189,9 +189,9 @@ public class MapsActivity extends FragmentActivity {
 
             if ( nearestProperties[i].available / nearestProperties[i].total == 0 ) {
                 vacancy = "FULL";
-            } else if (nearestProperties[i].available / nearestProperties[i].total < 0.5 ) {
+            } else if (nearestProperties[i].available / nearestProperties[i].total <= 0.5 ) {
                 vacancy = "HALF FULL";
-            } else if (nearestProperties[i].available / nearestProperties[i].total >= 0.5 ) {
+            } else if (nearestProperties[i].available / nearestProperties[i].total > 0.5 ) {
                 vacancy = "OPEN";
             } else {
                 vacancy = "ERROR";

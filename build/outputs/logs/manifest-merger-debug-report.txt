@@ -17,6 +17,7 @@ uses-sdk
 ADDED from AndroidManifest.xml:8:5
 MERGED from CouchSurfer.libs:SalesforceSDK:unspecified:7:5
 MERGED from CouchSurfer.external:cordova:unspecified:25:5
+MERGED from CouchSurfer.libs:volley:unspecified:7:5
 MERGED from com.google.android.gms:play-services:7.3.0:18:5
 MERGED from com.google.android.gms:play-services-ads:7.3.0:18:5
 MERGED from com.google.android.gms:play-services-base:7.3.0:18:5
@@ -155,6 +156,7 @@ ADDED from AndroidManifest.xml:39:5
 application
 ADDED from AndroidManifest.xml:41:5
 MERGED from CouchSurfer.libs:SalesforceSDK:unspecified:21:5
+MERGED from CouchSurfer.libs:volley:unspecified:9:5
 MERGED from com.google.android.gms:play-services:7.3.0:19:5
 MERGED from com.google.android.gms:play-services-ads:7.3.0:19:5
 MERGED from com.google.android.gms:play-services-base:7.3.0:20:5

@@ -98,11 +98,11 @@
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="httpmime-4.3.2" level="project" />
-    <orderEntry type="library" exported="" name="volley_android-4.4.2_r2" level="project" />
     <orderEntry type="library" exported="" name="apache-mime4j-0.7.2" level="project" />
     <orderEntry type="library" exported="" name="httpcore-4.3.2-modified" level="project" />
     <orderEntry type="library" exported="" name="android-junit-report-1.5.8" level="project" />
     <orderEntry type="library" exported="" name="guava-18.0" level="project" />
     <orderEntry type="module" module-name="cordova" exported="" />
+    <orderEntry type="module" module-name="volley" exported="" />
   </component>
 </module>
