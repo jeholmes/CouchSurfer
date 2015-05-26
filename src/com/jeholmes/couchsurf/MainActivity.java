@@ -35,6 +35,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -83,6 +84,8 @@ public class MainActivity extends SalesforceActivity {
 
     boolean locationEnabled;
 
+    //Dialog loadingDialog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -96,7 +99,8 @@ public class MainActivity extends SalesforceActivity {
 		setContentView(R.layout.main);
 	}
 	
-	@Override 
+	@Override
+    @SuppressLint("InflateParams")
 	public void onResume() {
 		// Hide everything until we are logged in
 		findViewById(R.id.root).setVisibility(View.INVISIBLE);
@@ -121,45 +125,123 @@ public class MainActivity extends SalesforceActivity {
 		SalesforceSDKManager.getInstance().logout(this);
 	}
 
-    @SuppressLint("InflateParams")
     public void onSearchClick (View v) {
 
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
-        userAddress = addressField.getText().toString();
+        new geocodeTask().execute();
 
-        if (userAddress.length() == 0) {
+    }
+
+
+    public void onMyLocationClick (View v) throws UnsupportedEncodingException {
+
+        checkLocationService();
+
+        if (locationEnabled) {
+            new myLocationTask().execute();
+        }
+
+    }
+
+    private class myLocationTask extends AsyncTask<Void,Void,Boolean > {
+
+        protected Dialog loadingDialog;
+
+        @SuppressLint("InflateParams")
+        protected void onPreExecute() {
+            // Get Location Manager and check for GPS & Network location services
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setTitle("No address entered");
-            builder.setMessage("Please enter a valid address");
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialogInterface, int i) {
-                }
-            });
-            Dialog alertDialog = builder.create();
-            alertDialog.setCanceledOnTouchOutside(true);
-            alertDialog.show();
-        } else {
+            LayoutInflater inflater = MainActivity.this.getLayoutInflater();
+            builder.setView(inflater.inflate(R.layout.load_dialog, null));
+            loadingDialog = builder.create();
+            loadingDialog.setCanceledOnTouchOutside(true);
+            loadingDialog.show();
+        }
+
+        protected Boolean doInBackground(Void... params) {
+            if (locationEnabled) {
+                waitAndSendQuery();
+            }
+            return (nearestProperties.size() != 0);
+        }
+
+        protected void onPostExecute(Boolean result) {
+            if (result) {
+                sendTransitionIntent();
+            } else {
+                loadingDialog.dismiss();
+                queryFailed();
+            }
+        }
+    }
+
+    private class geocodeTask extends AsyncTask<Void,Void,Integer> {
+
+        protected Dialog loadingDialog;
+
+        @SuppressLint("InflateParams")
+        protected void onPreExecute() {
+            userAddress = addressField.getText().toString();
 
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             LayoutInflater inflater = MainActivity.this.getLayoutInflater();
             builder.setView(inflater.inflate(R.layout.load_dialog, null));
-            Dialog loadingDialog = builder.create();
+            loadingDialog = builder.create();
             loadingDialog.setCanceledOnTouchOutside(true);
             loadingDialog.show();
+        }
 
-            geocodeThread.start();
+        protected Integer doInBackground(Void... params) {
+            if (userAddress.length() == 0) {
+                return 2;
+            } else {
+               geocodeAddress();
+                waitAndSendQuery();
+                if (nearestProperties.size() != 0) {
+                    return 0;
+                }
+                else {
+                    return 1;
+                }
+            }
+
+        }
+
+        protected void onPostExecute(Integer result) {
+            if (result == 0) {
+                sendTransitionIntent();
+            } else if (result == 1) {
+                loadingDialog.dismiss();
+                queryFailed();
+            } else if (result == 2) {
+                loadingDialog.dismiss();
+                addressFailed();
+            }
         }
     }
 
-    @SuppressLint("InflateParams")
-    public void onMyLocationClick (View v) throws UnsupportedEncodingException {
+    private void sendTransitionIntent() {
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        intent.putExtra("total", nearestProperties.size());
+        intent.putExtra("lat", userLat);
+        intent.putExtra("lng", userLng);
+        intent.putExtra("address", userAddress);
+        for (int i = 0; i < nearestProperties.size(); i++) {
+            intent.putExtra(i + "-id", nearestProperties.get(i).id);
+            intent.putExtra(i + "-name", nearestProperties.get(i).name);
+            intent.putExtra(i + "-lat", nearestProperties.get(i).lat);
+            intent.putExtra(i + "-lng", nearestProperties.get(i).lng);
+            intent.putExtra(i + "-avail", nearestProperties.get(i).available);
+            intent.putExtra(i + "-total", nearestProperties.get(i).total);
+        }
+        startActivity(intent);
+        finish();
+    }
 
-        // Get Location Manager and check for GPS & Network location services
+    private void checkLocationService() {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-
 
         if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
@@ -206,138 +288,116 @@ public class MainActivity extends SalesforceActivity {
 
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-
-        if (locationEnabled) {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            LayoutInflater inflater = MainActivity.this.getLayoutInflater();
-            builder.setView(inflater.inflate(R.layout.load_dialog, null));
-            Dialog loadingDialog = builder.create();
-            loadingDialog.setCanceledOnTouchOutside(true);
-            loadingDialog.show();
-
-            queryThread.start();
-        }
     }
 
-    Thread geocodeThread  = new Thread() {
-        public void run() {
+    private void geocodeAddress () {
+        Log.v("geocode","before http url define");
+        HttpGet httpGet = null;
+        try {
+            httpGet = new HttpGet(
+                    "http://maps.google.com/maps/api/geocode/json?address="
+                            + URLEncoder.encode(userAddress + ", BC, Canada", "UTF-8") + "&ka&sensor=false");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-            Log.v("geocode","before http url define");
-            HttpGet httpGet = null;
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpResponse response;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        Log.v("geocode","before http get");
+        try {
+            response = httpclient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            InputStream stream = entity.getContent();
+            int b;
+            while ((b = stream.read()) != -1) {
+                stringBuilder.append((char) b);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Log.v("geocode","before json");
+        JSONObject jsonObject;
+        try {
+            jsonObject = new JSONObject(stringBuilder.toString());
+
+            userLng = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
+                    .getJSONObject("geometry").getJSONObject("location")
+                    .getDouble("lng");
+
+            userLat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
+                    .getJSONObject("geometry").getJSONObject("location")
+                    .getDouble("lat");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Log.v("geocode", "done");
+    }
+
+    private void addressFailed () {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("No address entered");
+        builder.setMessage("Please enter a valid address");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        Dialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(true);
+        alertDialog.show();
+    }
+
+    private void queryFailed () {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Connection Failed");
+        builder.setMessage("Could not query couches");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        Dialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(true);
+        alertDialog.show();
+    }
+
+    private void waitAndSendQuery() {
+        int i = 0;
+        while (userLat == 0.0 && userLng == 0.0 && i < 30) {
             try {
-                httpGet = new HttpGet(
-                        "http://maps.google.com/maps/api/geocode/json?address="
-                                + URLEncoder.encode(userAddress + ", BC, Canada", "UTF-8") + "&ka&sensor=false");
-            } catch (UnsupportedEncodingException e) {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("test", "busy waiting one second, coords are " + userLat + " " + userLng);
+                i++;
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
 
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpResponse response;
-            StringBuilder stringBuilder = new StringBuilder();
+        try {
+            sendRequest("SELECT Name, Id, Location__Latitude__s, Location__Longitude__s, Available_Couches__c, Total_Couches__c\n" +
+                    "FROM Property__c\n" +
+                    "ORDER BY DISTANCE(Location__c, GEOLOCATION(" + userLat + "," + userLng + "), 'km') ASC\n" +
+                    "LIMIT 10");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-            Log.v("geocode","before http get");
+        i = 0;
+        while (nearestProperties.size() == 0 && i < 30) {
             try {
-                response = httpclient.execute(httpGet);
-                HttpEntity entity = response.getEntity();
-                InputStream stream = entity.getContent();
-                int b;
-                while ((b = stream.read()) != -1) {
-                    stringBuilder.append((char) b);
-                }
-            } catch (IOException e) {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("test", "busy waiting one second, list size is " + nearestProperties.size());
+                i++;
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            Log.v("geocode","before json");
-            JSONObject jsonObject;
-            try {
-                jsonObject = new JSONObject(stringBuilder.toString());
-
-                userLng = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
-                        .getJSONObject("geometry").getJSONObject("location")
-                        .getDouble("lng");
-
-                userLat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
-                        .getJSONObject("geometry").getJSONObject("location")
-                        .getDouble("lat");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            Log.v("geocode", "done");
-
-            queryThread.start();
         }
-    };
-
-    Thread queryThread = new Thread() {
-        public void run() {
-
-            try {
-                int i = 0;
-                while (userLat == 0.0 && userLng == 0.0 && i < 60) {
-                    try {
-                        // Wait a second
-                        Thread.sleep(1000);
-                        Log.v("test", "busy waiting one second, list size is " + nearestProperties.size());
-                        i++;
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } finally {
-                try {
-                    sendRequest("SELECT Name, Id, Location__Latitude__s, Location__Longitude__s, Available_Couches__c, Total_Couches__c\n" +
-                            "FROM Property__c\n" +
-                            "ORDER BY DISTANCE(Location__c, GEOLOCATION(" + userLat + "," + userLng + "), 'km') ASC\n" +
-                            "LIMIT 10");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-
-                transitionThread.start();
-            }
-        }
-    };
-
-    Thread transitionThread  = new Thread() {
-        public void run() {
-            try {
-                int i = 0;
-                while (nearestProperties.size() == 0 && i < 20) {
-                    try {
-                        // Wait a second
-                        Thread.sleep(1000);
-                        Log.v("test", "busy waiting one second, list size is " + nearestProperties.size());
-                        i++;
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            finally {
-                if (nearestProperties.size() != 0) {
-                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                    intent.putExtra("total", nearestProperties.size());
-                    intent.putExtra("lat", userLat);
-                    intent.putExtra("lng", userLng);
-                    intent.putExtra("address", userAddress);
-                    for (int i = 0; i < nearestProperties.size(); i++) {
-                        intent.putExtra(i + "-id", nearestProperties.get(i).id);
-                        intent.putExtra(i + "-name", nearestProperties.get(i).name);
-                        intent.putExtra(i + "-lat", nearestProperties.get(i).lat);
-                        intent.putExtra(i + "-lng", nearestProperties.get(i).lng);
-                        intent.putExtra(i + "-avail", nearestProperties.get(i).available);
-                        intent.putExtra(i + "-total", nearestProperties.get(i).total);
-                    }
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        }
-    };
+    }
 
 	private void sendRequest(String soql) throws UnsupportedEncodingException {
 		RestRequest restRequest = RestRequest.getRequestForQuery(getString(R.string.api_version), soql);

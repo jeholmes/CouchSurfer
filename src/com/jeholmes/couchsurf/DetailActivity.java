@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -39,20 +40,33 @@ public class DetailActivity extends SalesforceActivity {
     private ArrayList<Couch> returnedCouches;
     private ArrayList<Member> returnedMembers;
 
+    private ArrayList<Properties> nearestProperties;
+
     private String propertyId;
     private String deviceId;
 
-    private int totalCouches;
-    private int availableCouches;
+    protected int totalCouches;
+    protected int availableCouches;
 
     private boolean[] couchUpdateDone;
     private boolean couchesDone;
+
+    double userLat;
+    double userLng;
+
+    Dialog loadingDialog;
 
     @Override
     @SuppressLint("InflateParams")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(DetailActivity.this);
+        LayoutInflater inflater = DetailActivity.this.getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.load_dialog, null));
+        loadingDialog = builder.create();
+        loadingDialog.setCanceledOnTouchOutside(true);
 
         TextView nameField = (TextView) findViewById(R.id.property_name);
 
@@ -61,6 +75,10 @@ public class DetailActivity extends SalesforceActivity {
         propertyId = extras.getString("propertyId");
         totalCouches = (int) Float.parseFloat(extras.getString("total"));
         availableCouches = (int) Float.parseFloat(extras.getString("avail"));
+
+        userLat = extras.getDouble("lat");
+        userLng = extras.getDouble("lng");
+
 
         deviceId = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
 
@@ -77,6 +95,8 @@ public class DetailActivity extends SalesforceActivity {
     public void onResume(RestClient client) {
         this.client = client;
 
+        nearestProperties = new ArrayList<>();
+
         String couchQuery = "SELECT Id, Vacancy__c, Member__c, device_Id__c FROM Couch__c WHERE Property__r.Id='" + propertyId +"'";
         String memberQuery = "SELECT Id, Name FROM Member__c";
 
@@ -85,17 +105,9 @@ public class DetailActivity extends SalesforceActivity {
 
     private class updateTask extends AsyncTask<Void,Void,Boolean > {
 
-        protected Dialog loadingDialog;
-
         @SuppressLint("InflateParams")
         protected void onPreExecute() {
 
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(DetailActivity.this);
-            LayoutInflater inflater = DetailActivity.this.getLayoutInflater();
-            builder.setView(inflater.inflate(R.layout.load_dialog, null));
-            loadingDialog = builder.create();
-            loadingDialog.setCanceledOnTouchOutside(true);
             loadingDialog.show();
         }
 
@@ -103,34 +115,22 @@ public class DetailActivity extends SalesforceActivity {
             int couchesToUpdate = 0;
             couchesDone = false;
 
-            //Map<String, Object> propertyfields = null;
 
             for (int i = 0; i < returnedCouches.size(); i++) {
                 if (returnedCouches.get(i).toUpdate) {
 
                     Log.v("couch update", returnedCouches.get(i).couchId);
                     Map<String, Object> fields = new HashMap<>();
-                    //propertyfields = new HashMap<>();
 
                     if (returnedCouches.get(i).memberId.equals("") || returnedCouches.get(i).memberId.equals("null")) {
-                        //fields.put("Vacancy__c", true);
-                        fields.put("device_Id__c", deviceId);
+                        fields.put("device_Id__c", "");
                         fields.put("Member__c", "");
-
-                        //availableCouches++;
-                        //propertyfields.put("Total_Couches__c", totalCouches);
-                        //propertyfields.put("Available_Couches__c", availableCouches);
                     } else {
-                        //fields.put("Vacancy__c", false);
                         fields.put("device_Id__c", deviceId);
                         fields.put("Member__c", returnedCouches.get(i).memberId);
-
-                        //availableCouches--;
-                        //propertyfields.put("Total_Couches__c", totalCouches);
-                        //propertyfields.put("Available_Couches__c", availableCouches);
                     }
 
-                    String couchID = returnedCouches.get(i).couchId;//.substring(0,15);
+                    String couchID = returnedCouches.get(i).couchId;
                     saveData(couchID, fields, couchesToUpdate);
 
                     couchesToUpdate++;
@@ -142,7 +142,7 @@ public class DetailActivity extends SalesforceActivity {
             }
 
             int i = 0;
-            while (!couchesDone && i < 60) {
+            while (!couchesDone && i < 30) {
 
                 couchesDone = true;
                 for (boolean flag : couchUpdateDone) {
@@ -168,7 +168,7 @@ public class DetailActivity extends SalesforceActivity {
 
                 loadingDialog.dismiss();
 
-                finish();
+                new refreshMapTask().execute();
 
             } else {
                 loadingDialog.dismiss();
@@ -190,15 +190,9 @@ public class DetailActivity extends SalesforceActivity {
 
     private class populateTask extends AsyncTask<String,Void,Boolean > {
 
-        protected Dialog loadingDialog;
-
         @SuppressLint("InflateParams")
         protected void onPreExecute() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(DetailActivity.this);
-            LayoutInflater inflater = DetailActivity.this.getLayoutInflater();
-            builder.setView(inflater.inflate(R.layout.load_dialog, null));
-            loadingDialog = builder.create();
-            loadingDialog.setCanceledOnTouchOutside(true);
+
             loadingDialog.show();
         }
 
@@ -213,7 +207,7 @@ public class DetailActivity extends SalesforceActivity {
             }
 
             int i = 0;
-            while ((returnedCouches.size() == 0 || returnedMembers.size() == 0) && i < 60) {
+            while ((returnedCouches.size() == 0 || returnedMembers.size() == 0) && i < 30) {
                 try {
                     Thread.sleep(1000);
                     i++;
@@ -327,6 +321,86 @@ public class DetailActivity extends SalesforceActivity {
         }
     }
 
+    private class refreshMapTask extends AsyncTask<Void,Void,Boolean > {
+
+        protected void onPreExecute() {
+            // Get Location Manager and check for GPS & Network location services
+            loadingDialog.show();
+        }
+
+        protected Boolean doInBackground(Void... params) {
+
+            waitAndSendQuery();
+
+            return (nearestProperties.size() != 0);
+        }
+
+        protected void onPostExecute(Boolean result) {
+            if (result) {
+                sendTransitionIntent();
+            } else {
+                queryFailed();
+            }
+        }
+    }
+
+    private void waitAndSendQuery() {
+
+        try {
+            sendRequest("SELECT Name, Id, Location__Latitude__s, Location__Longitude__s, Available_Couches__c, Total_Couches__c\n" +
+                    "FROM Property__c\n" +
+                    "ORDER BY DISTANCE(Location__c, GEOLOCATION(" + userLat + "," + userLng + "), 'km') ASC\n" +
+                    "LIMIT 10");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        int i = 0;
+        while (nearestProperties.size() == 0 && i < 30) {
+            try {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("test", "busy waiting one second, list size is " + nearestProperties.size());
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void queryFailed () {
+        loadingDialog.dismiss();
+        AlertDialog.Builder builder = new AlertDialog.Builder(DetailActivity.this);
+        builder.setTitle("Connection Failed");
+        builder.setMessage("Could not query couches");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        Dialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(true);
+        alertDialog.show();
+    }
+
+    private void sendTransitionIntent() {
+        Intent intent = new Intent(DetailActivity.this, MapsActivity.class);
+        intent.putExtra("total", nearestProperties.size());
+        intent.putExtra("lat", userLat);
+        intent.putExtra("lng", userLng);
+        intent.putExtra("address", "");
+        for (int i = 0; i < nearestProperties.size(); i++) {
+            intent.putExtra(i + "-id", nearestProperties.get(i).id);
+            intent.putExtra(i + "-name", nearestProperties.get(i).name);
+            intent.putExtra(i + "-lat", nearestProperties.get(i).lat);
+            intent.putExtra(i + "-lng", nearestProperties.get(i).lng);
+            intent.putExtra(i + "-avail", nearestProperties.get(i).available);
+            intent.putExtra(i + "-total", nearestProperties.get(i).total);
+        }
+        startActivity(intent);
+        finish();
+    }
+
     public void onLogoutClick(View v) {
         SalesforceSDKManager.getInstance().logout(this);
     }
@@ -352,7 +426,7 @@ public class DetailActivity extends SalesforceActivity {
                 try {
                     //DetailActivity.this.finish();
                     Toast.makeText(DetailActivity.this,
-                            "id " + id + " updated",
+                            id + " updated",
                             Toast.LENGTH_LONG).show();
 
                     if (!couchesDone) {
@@ -390,6 +464,9 @@ public class DetailActivity extends SalesforceActivity {
                         if (record.has("Vacancy__c")) {
                             Couch couch = new Couch(record.getString("Id"), record.getBoolean("Vacancy__c"), record.getString("Member__c"), record.getString("device_Id__c"), false);
                             returnedCouches.add(couch);
+                        } else if (record.has("Location__Latitude__s") || record.has("Location__Longitude__s")) {
+                            Properties Properties = new Properties(record.getString("Name"), record.getString("Id"), record.getDouble("Location__Latitude__s"), record.getDouble("Location__Longitude__s"), record.getDouble("Available_Couches__c"), record.getDouble("Total_Couches__c"));
+                            nearestProperties.add(Properties);
                         } else {
                             Member member = new Member(record.getString("Name"), record.getString("Id"));
                             returnedMembers.add(member);
@@ -442,6 +519,28 @@ public class DetailActivity extends SalesforceActivity {
         public Member(String name, String id) {
             this.name = name;
             this.id = id;
+        }
+
+        public String toString() {
+            return name;
+        }
+    }
+
+    class Properties {
+        public String name;
+        public String id;
+        public double lat;
+        public double lng;
+        public double available;
+        public double total;
+
+        public Properties(String name, String id, double lat, double lng, double available, double total) {
+            this.name = name;
+            this.id = id;
+            this.lat = lat;
+            this.lng = lng;
+            this.available = available;
+            this.total = total;
         }
 
         public String toString() {

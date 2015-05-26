@@ -176,6 +176,10 @@ public class MapsActivity extends FragmentActivity {
                 intent.putExtra("propertyId", lines[2]);
                 intent.putExtra("total", lines[3]);
                 intent.putExtra("avail", lines[4]);
+
+                intent.putExtra("lat", userLat);
+                intent.putExtra("lng", userLng);
+
                 startActivity(intent);
                 //finish();
             }
