@@ -320,31 +320,13 @@ public class RegisterActivity extends SalesforceActivity {
     }
 
     /**
-     * Busy wait based on conditional
-     * @param seconds time out limit
-     * @param condition condition statement to check
-     */
-    private void busyWait(int seconds, boolean condition) {
-        int i = 0;
-        while ( condition && i < seconds) {
-            try {
-                // Wait a second
-                Thread.sleep(1000);
-                Log.v("busy wait", "waiting one second");
-                i++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /**
      * AsyncTask to handle updating couches
      */
     private class updateTask extends AsyncTask<Void,Void,Integer > {
 
         String member;
         String address;
+        String email;
         Double lat;
         Double lng;
         int couches;
@@ -355,8 +337,11 @@ public class RegisterActivity extends SalesforceActivity {
             member = memberField.getText().toString();
             EditText addressField = (EditText) findViewById(R.id.address);
             address = addressField.getText().toString();
+            EditText emailField = (EditText) findViewById(R.id.email);
+            email = emailField.getText().toString();
             NumberPicker couchesField = (NumberPicker) findViewById(R.id.couches);
             couches = couchesField.getValue();
+
 
             // Initialize ids
             memberId = "";
@@ -372,17 +357,28 @@ public class RegisterActivity extends SalesforceActivity {
         protected Integer doInBackground(Void... params) {
 
             // Check if fields have values and return fail if empty
-            if (member.equals("") || address.equals("")) {
+            if (member.equals("") || address.equals("") || email.equals("")) {
                 return 2;
             }
 
             // Add member
             Map<String, Object> memberFields = new HashMap<>();
             memberFields.put("Name", member);
+            memberFields.put("Email__c", email);
             saveData(memberFields, 0);
 
             Log.v("update", "member name: " + member);
-            busyWait(30, !memberDone);
+            int i = 0;
+            while ( !memberDone && i < getResources().getInteger(R.integer.timeout)) {
+                try {
+                    // Wait a second
+                    Thread.sleep(1000);
+                    Log.v("busy wait", "waiting one second");
+                    i++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             Log.v("update", "member done: " + memberDone);
 
             // Get member id
@@ -393,7 +389,17 @@ public class RegisterActivity extends SalesforceActivity {
             }
 
             Log.v("update","member id: " + memberId);
-            busyWait(30, memberId.equals(""));
+            i = 0;
+            while ( memberId.equals("") && i < getResources().getInteger(R.integer.timeout)) {
+                try {
+                    // Wait a second
+                    Thread.sleep(1000);
+                    Log.v("busy wait", "waiting one second");
+                    i++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             Log.v("update","member id: " + memberId);
 
             // Geocode address
@@ -414,10 +420,21 @@ public class RegisterActivity extends SalesforceActivity {
             propertyFields.put("Member_del__c", memberId);
             propertyFields.put("Available_Couches__c", 0);
             propertyFields.put("Total_Couches__c", 0);
+            propertyFields.put("Email__c", email);
             saveData(propertyFields, 1);
 
             Log.v("update", "property address: " + address);
-            busyWait(30, !propertyDone);
+            i = 0;
+            while ( !propertyDone && i < getResources().getInteger(R.integer.timeout)) {
+                try {
+                    // Wait a second
+                    Thread.sleep(1000);
+                    Log.v("busy wait", "waiting one second");
+                    i++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             Log.v("update", "property done: " + propertyDone);
 
             // Get property id
@@ -428,18 +445,39 @@ public class RegisterActivity extends SalesforceActivity {
             }
 
             Log.v("update","property id: " + propertyId);
-            busyWait(30, propertyId.equals(""));
+            i = 0;
+            while ( propertyId.equals("") && i < getResources().getInteger(R.integer.timeout)) {
+                try {
+                    // Wait a second
+                    Thread.sleep(1000);
+                    Log.v("busy wait", "waiting one second");
+                    i++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             Log.v("update", "property id: " + propertyId);
 
             // Add couches
-            for (int i = 0; i < couches; i++) {
-                Map<String, Object> couchesField = new HashMap<>();
-                couchesField.put("Property__c", propertyId);
-                saveData(couchesField,2);
+            for (int j = 0; j < couches; i++) {
+                Map<String, Object> couchesFields = new HashMap<>();
+                couchesFields.put("Property__c", propertyId);
+                couchesFields.put("Email__c", email);
+                saveData(couchesFields, 2);
             }
 
             Log.v("update","couches done: " + couchesDone);
-            busyWait(30, !couchesDone);
+            i = 0;
+            while ( !couchesDone && i < getResources().getInteger(R.integer.timeout)) {
+                try {
+                    // Wait a second
+                    Thread.sleep(1000);
+                    Log.v("busy wait", "waiting one second");
+                    i++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
             Log.v("update","couches done: " + couchesDone);
 
             if (memberDone && propertyDone && geocodeDone && couchesDone) {

@@ -276,6 +276,9 @@
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.3.0/res/values/version.xml -->
     <eat-comment/>
     <integer name="google_play_services_version">7327000</integer>
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/integers.xml -->
+    <eat-comment/>
+    <integer name="timeout">30</integer>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -361,6 +364,7 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/strings.xml -->
     <eat-comment/>
     <string name="detail_button">Go</string>
+    <string name="email_label">Email:</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/CouchSurfer.external/cordova/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="go">Snap</string>

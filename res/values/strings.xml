@@ -25,4 +25,5 @@
     <string name="property_address">Address: </string>
     <string name="couches_label">Couches:</string>
     <string name="admin_id">0051a000000Nc7X</string>
+    <string name="email_label">Email:</string>
 </resources>

@@ -269,7 +269,17 @@ public class MainActivity extends SalesforceActivity {
      */
     private void waitAndSendQuery() {
         // Wait for user coordinates to be defined
-        busyWait(30, userLat == 0.0 && userLng == 0.0);
+        int i = 0;
+        while ( userLat == 0.0 || userLng == 0.0 && i < getResources().getInteger(R.integer.timeout)) {
+            try {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("busy wait", "waiting one second");
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         if (userLat != 0.0 && userLng != 0.0) {
             // Send query for properties based on user coordinates
@@ -284,8 +294,18 @@ public class MainActivity extends SalesforceActivity {
                 e.printStackTrace();
             }
 
-            // Wait for response to populate property list
-            busyWait(30, nearestProperties.size() == 0);
+        // Wait for response to populate property list
+        i = 0;
+        while ( nearestProperties.size() == 0 && i < getResources().getInteger(R.integer.timeout)) {
+            try {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("busy wait", "waiting one second");
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         }
     }
 
@@ -357,25 +377,6 @@ public class MainActivity extends SalesforceActivity {
         Dialog alertDialog = builder.create();
         alertDialog.setCanceledOnTouchOutside(true);
         alertDialog.show();
-    }
-
-    /**
-     * Busy wait based on conditional
-     * @param seconds time out limit
-     * @param condition condition statement to check
-     */
-    private void busyWait(int seconds, boolean condition) {
-        int i = 0;
-        while ( condition && i < seconds) {
-            try {
-                // Wait a second
-                Thread.sleep(1000);
-                Log.v("busy wait", "waiting one second");
-                i++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     /**

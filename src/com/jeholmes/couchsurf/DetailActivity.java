@@ -45,8 +45,6 @@ public class DetailActivity extends SalesforceActivity {
     // Device id used as update signature
     private String deviceId;
 
-    // Property information
-    private String propertyId;
     protected int totalCouches;
     protected int availableCouches;
 
@@ -83,7 +81,7 @@ public class DetailActivity extends SalesforceActivity {
         TextView nameField = (TextView) findViewById(R.id.property_name);
         Bundle extras = getIntent().getExtras();
         nameField.setText(extras.getString("name"));
-        propertyId = extras.getString("propertyId");
+        String propertyId = extras.getString("propertyId");
         totalCouches = (int) Float.parseFloat(extras.getString("total"));
         availableCouches = (int) Float.parseFloat(extras.getString("avail"));
 
@@ -110,7 +108,7 @@ public class DetailActivity extends SalesforceActivity {
         // Set query strings to get couches and members
         String couchQuery = "SELECT Id, Vacancy__c, Member__c, device_Id__c FROM Couch__c WHERE Property__r.Id='"
                 + propertyId +"'";
-        String memberQuery = "SELECT Id, Name FROM Member__c";
+        String memberQuery = "SELECT Id, Name FROM Member__c ORDER BY Name ASC NULLS LAST";
 
         new populateTask().execute(couchQuery, memberQuery);
     }
@@ -165,7 +163,17 @@ public class DetailActivity extends SalesforceActivity {
         }
 
         // Wait for response to populate property list
-        busyWait(30, nearestProperties.size() == 0);
+        int i = 0;
+        while ( nearestProperties.size() == 0 && i < getResources().getInteger(R.integer.timeout)) {
+            try {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("busy wait", "waiting one second");
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -286,25 +294,6 @@ public class DetailActivity extends SalesforceActivity {
     }
 
     /**
-     * Busy wait based on conditional
-     * @param seconds time out limit
-     * @param condition condition statement to check
-     */
-    private void busyWait(int seconds, boolean condition) {
-        int i = 0;
-        while ( condition && i < seconds) {
-            try {
-                // Wait a second
-                Thread.sleep(1000);
-                Log.v("busy wait", "waiting one second");
-                i++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /**
      * AsyncTask to handle querying for couches and members
      */
     private class populateTask extends AsyncTask<String,Void,Boolean > {
@@ -324,7 +313,17 @@ public class DetailActivity extends SalesforceActivity {
             }
 
             // Wait for couch and member arrays to populate with returned records
-            busyWait(30, (returnedCouches.size() == 0 || returnedMembers.size() == 0));
+            int i = 0;
+            while ( (returnedCouches.size() == 0 || returnedMembers.size() == 0) && i < getResources().getInteger(R.integer.timeout)) {
+                try {
+                    // Wait a second
+                    Thread.sleep(1000);
+                    Log.v("busy wait", "waiting one second");
+                    i++;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
             // Return if arrays are populated
             return returnedCouches.size() != 0 && returnedMembers.size() != 0;
@@ -468,7 +467,7 @@ public class DetailActivity extends SalesforceActivity {
 
             // Wait for couch update flag array to be all true
             int i = 0;
-            while (!couchesDone && i < 30) {
+            while (!couchesDone && i < getResources().getInteger(R.integer.timeout)) {
                 couchesDone = true;
                 for (boolean flag : couchUpdateDone) {
                     if (!flag) {
