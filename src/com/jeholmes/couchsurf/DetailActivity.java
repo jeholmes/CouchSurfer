@@ -62,15 +62,20 @@ public class DetailActivity extends SalesforceActivity {
     Dialog loadingDialog;
 
     @Override
-    @SuppressLint("InflateParams") // To pass null to layout inflater
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
+    }
+
+    @SuppressLint("InflateParams") // To pass null to layout inflater
+    @Override
+    public void onResume(RestClient client) {
+        this.client = client;
 
         // Build loading dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(DetailActivity.this);
         LayoutInflater inflater = DetailActivity.this.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.load_dialog, null));
+        builder.setView(inflater.inflate(R.layout.loaddialog, null));
         loadingDialog = builder.create();
         loadingDialog.setCanceledOnTouchOutside(true);
 
@@ -101,11 +106,6 @@ public class DetailActivity extends SalesforceActivity {
         returnedCouches = new ArrayList<>();
         returnedMembers = new ArrayList<>();
         nearestProperties = new ArrayList<>();
-    }
-
-    @Override
-    public void onResume(RestClient client) {
-        this.client = client;
 
         // Set query strings to get couches and members
         String couchQuery = "SELECT Id, Vacancy__c, Member__c, device_Id__c FROM Couch__c WHERE Property__r.Id='"
@@ -165,17 +165,7 @@ public class DetailActivity extends SalesforceActivity {
         }
 
         // Wait for response to populate property list
-        int i = 0;
-        while (nearestProperties.size() == 0 && i < 30) {
-            try {
-                // Wait a second
-                Thread.sleep(1000);
-                Log.v("test", "busy waiting one second, list size is " + nearestProperties.size());
-                i++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        busyWait(30, nearestProperties.size() == 0);
     }
 
     /**
@@ -296,6 +286,25 @@ public class DetailActivity extends SalesforceActivity {
     }
 
     /**
+     * Busy wait based on conditional
+     * @param seconds time out limit
+     * @param condition condition statement to check
+     */
+    private void busyWait(int seconds, boolean condition) {
+        int i = 0;
+        while ( condition && i < seconds) {
+            try {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("busy wait", "waiting one second");
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
      * AsyncTask to handle querying for couches and members
      */
     private class populateTask extends AsyncTask<String,Void,Boolean > {
@@ -315,17 +324,7 @@ public class DetailActivity extends SalesforceActivity {
             }
 
             // Wait for couch and member arrays to populate with returned records
-            int i = 0;
-            while ((returnedCouches.size() == 0 || returnedMembers.size() == 0) && i < 30) {
-                try {
-                    Thread.sleep(1000);
-                    i++;
-                    Log.v("test", "couches: " + returnedCouches.size());
-                    Log.v("test", "members: " + returnedMembers.size());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+            busyWait(30, (returnedCouches.size() == 0 || returnedMembers.size() == 0));
 
             // Return if arrays are populated
             return returnedCouches.size() != 0 && returnedMembers.size() != 0;

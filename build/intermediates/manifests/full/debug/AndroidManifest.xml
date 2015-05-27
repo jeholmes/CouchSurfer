@@ -7,7 +7,7 @@
 
     <uses-sdk
         android:minSdkVersion="17"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="22" />
 
     <!--
         GCM permission to ensure that only this application can
@@ -19,18 +19,10 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.jeholmes.couchsurf.C2D_MESSAGE" />
-
-    <android:uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--
  The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but are recommended.
@@ -47,6 +39,7 @@
 
     <application
         android:name="com.jeholmes.couchsurf.CouchSurferApp"
+        android:allowBackup="true"
         android:icon="@drawable/sf__icon"
         android:label="@string/app_name"
         android:manageSpaceActivity="com.salesforce.androidsdk.ui.ManageSpaceActivity"
@@ -70,6 +63,9 @@
             android:name="com.jeholmes.couchsurf.MapsActivity"
             android:label="@string/title_activity_maps" >
         </activity>
+        <activity
+            android:name="com.jeholmes.couchsurf.RegisterActivity"
+            android:label="@string/register" />
 
         <meta-data
             android:name="com.google.android.gms.version"

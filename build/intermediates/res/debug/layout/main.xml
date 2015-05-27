@@ -20,10 +20,9 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:text="Search by GPS"
+			android:text="@string/gps_search"
 			android:id="@+id/gps_search"
             android:layout_gravity="center_horizontal"
-			android:phoneNumber="false"
 			android:layout_marginBottom="10dp" />
 
 		<ImageButton
@@ -46,7 +45,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:text="OR"
+			android:text="@string/or"
 			android:id="@+id/or"
 			android:layout_gravity="center_horizontal" />
 
@@ -67,8 +66,8 @@
 				android:inputType="text"
 				android:hint="@string/address_search"
 				android:layout_gravity="center"
-				android:background="@drawable/rounded_edittext"
-				android:textColor="#ff000000"
+				android:background="@drawable/rounded_address_field"
+				android:textColor="@color/black"
 				android:padding="10dp" />
 
 			<ImageButton
@@ -80,12 +79,44 @@
 				android:onClick="onSearchClick"
 				android:contentDescription="@string/search"
 				android:src="@drawable/ic_menu_search"
-				android:background="@drawable/rounded_button" />
+				android:background="@drawable/rounded_search_button" />
 		</LinearLayout>
 
-		<FrameLayout
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"></FrameLayout>
+		<LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:text="@string/not_a_member"
+				android:id="@+id/textView"
+				android:layout_gravity="center"
+				android:textSize="18sp" />
+
+			<Space
+				android:layout_width="fill_parent"
+				android:layout_height="10dp" />
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/register"
+				android:id="@+id/register_button"
+				android:layout_gravity="center"
+				android:textColor="@color/white"
+				android:background="@drawable/rounded_large_button"
+				android:paddingLeft="20dp"
+				android:paddingTop="5dp"
+				android:paddingRight="20dp"
+				android:paddingBottom="5dp"
+				android:onClick="onRegisterClick"
+				android:textSize="24sp" />
+        </LinearLayout>
 
 	</LinearLayout>
 

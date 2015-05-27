@@ -38,7 +38,9 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -86,6 +88,18 @@ public class MainActivity extends SalesforceActivity {
     private LocationManager locationManager;
     boolean locationEnabled;
 
+    /**
+     * Override back button to kill activity
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -98,10 +112,21 @@ public class MainActivity extends SalesforceActivity {
      * onResume method initializes activity variables
      */
     @Override
-    @SuppressLint("InflateParams") // To pass null to layout inflater
 	public void onResume() {
 		// Hide everything until we are logged in
 		findViewById(R.id.root).setVisibility(View.INVISIBLE);
+
+		super.onResume();
+	}
+
+	@Override
+    @SuppressLint("InflateParams") // To pass null to layout inflater
+	public void onResume(RestClient client) {
+        // Keeping reference to rest client
+        this.client = client;
+
+		// Show everything
+		findViewById(R.id.root).setVisibility(View.VISIBLE);
 
         // If intent includes address string, update address field
         Bundle extras = getIntent().getExtras();
@@ -109,28 +134,19 @@ public class MainActivity extends SalesforceActivity {
             addressField = (EditText) findViewById(R.id.address_field);
             userAddress = extras.getString("address");
             addressField.setText(userAddress);
+        } else {
+            addressField = (EditText) findViewById(R.id.address_field);
         }
 
         // Build loading dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         LayoutInflater inflater = MainActivity.this.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.load_dialog, null));
+        builder.setView(inflater.inflate(R.layout.loaddialog, null));
         loadingDialog = builder.create();
         loadingDialog.setCanceledOnTouchOutside(true);
 
         // Initialize list of returned properties
         nearestProperties = new ArrayList<>();
-
-		super.onResume();
-	}
-
-	@Override
-	public void onResume(RestClient client) {
-        // Keeping reference to rest client
-        this.client = client;
-
-		// Show everything
-		findViewById(R.id.root).setVisibility(View.VISIBLE);
 	}
 
     /**
@@ -159,6 +175,15 @@ public class MainActivity extends SalesforceActivity {
         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
         new geocodeTask().execute();
+    }
+
+    /**
+     * Register button click handler, sends intent to RegisterActivity
+     */
+    public void onRegisterClick (View v) {
+        Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     /**
@@ -244,46 +269,29 @@ public class MainActivity extends SalesforceActivity {
      */
     private void waitAndSendQuery() {
         // Wait for user coordinates to be defined
-        int i = 0;
-        while (userLat == 0.0 && userLng == 0.0 && i < 30) {
+        busyWait(30, userLat == 0.0 && userLng == 0.0);
+
+        if (userLat != 0.0 && userLng != 0.0) {
+            // Send query for properties based on user coordinates
             try {
-                // Wait a second
-                Thread.sleep(1000);
-                Log.v("busy wait", "waiting one second, coordinates are " + userLat + " " + userLng);
-                i++;
-            } catch (InterruptedException e) {
+                sendRequest("SELECT Name, Id, Location__Latitude__s, Location__Longitude__s, " +
+                        "Available_Couches__c, Total_Couches__c\n" +
+                        "FROM Property__c\n" +
+                        "ORDER BY DISTANCE(Location__c, " +
+                        "GEOLOCATION(" + userLat + "," + userLng + "), 'km') ASC\n" +
+                        "LIMIT 10");
+            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-        }
 
-        // Send query for properties based on user coordinates
-        try {
-            sendRequest("SELECT Name, Id, Location__Latitude__s, Location__Longitude__s, " +
-                    "Available_Couches__c, Total_Couches__c\n" +
-                    "FROM Property__c\n" +
-                    "ORDER BY DISTANCE(Location__c, " +
-                    "GEOLOCATION(" + userLat + "," + userLng + "), 'km') ASC\n" +
-                    "LIMIT 10");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        // Wait for response to populate property list
-        i = 0;
-        while (nearestProperties.size() == 0 && i < 30) {
-            try {
-                // Wait a second
-                Thread.sleep(1000);
-                Log.v("busy wait", "waiting one second, list size is " + nearestProperties.size());
-                i++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            // Wait for response to populate property list
+            busyWait(30, nearestProperties.size() == 0);
         }
     }
 
     /**
      * Sends soql query request
+     * @param soql soql query string
      */
 	private void sendRequest(String soql) throws UnsupportedEncodingException {
 		RestRequest restRequest = RestRequest.getRequestForQuery(getString(R.string.api_version), soql);
@@ -349,6 +357,25 @@ public class MainActivity extends SalesforceActivity {
         Dialog alertDialog = builder.create();
         alertDialog.setCanceledOnTouchOutside(true);
         alertDialog.show();
+    }
+
+    /**
+     * Busy wait based on conditional
+     * @param seconds time out limit
+     * @param condition condition statement to check
+     */
+    private void busyWait(int seconds, boolean condition) {
+        int i = 0;
+        while ( condition && i < seconds) {
+            try {
+                // Wait a second
+                Thread.sleep(1000);
+                Log.v("busy wait", "waiting one second");
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

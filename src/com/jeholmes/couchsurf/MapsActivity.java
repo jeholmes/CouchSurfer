@@ -91,8 +91,7 @@ public class MapsActivity extends FragmentActivity {
      * Override back button to start a new MainActivity with the address bundled as an extra
      */
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK))
         {
             Intent intent = new Intent(MapsActivity.this, MainActivity.class);

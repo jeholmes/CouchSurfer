@@ -18,17 +18,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/property_name"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_detail_text"
+        android:background="@drawable/rounded_text_background"
         android:textStyle="bold"
-        android:text="Property"
+        android:text="@string/property"
         android:padding="5dp" />
-
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/property_id"
-        android:layout_gravity="center" />-->
 
     <Space
         android:layout_width="fill_parent"
@@ -47,7 +40,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:background="@drawable/rounded_detail_text"
+        android:background="@drawable/rounded_text_background"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="5dp">
@@ -61,7 +54,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Couches: "
+                android:text="@string/total_couches"
                 android:layout_gravity="start"
                 android:id="@+id/total_label" />
 
@@ -81,7 +74,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available Couches: "
+                android:text="@string/available_couches"
                 android:id="@+id/avail_label"
                 android:layout_gravity="start" />
 
@@ -109,9 +102,9 @@
             android:onClick="onUpdateClick"
             android:text="@string/update_button"
             android:layout_gravity="center_horizontal"
-            android:textSize="36dp"
-            android:background="@drawable/rounded_fullbutton"
-            android:textColor="#ffffffff"
+            android:textSize="36sp"
+            android:background="@drawable/rounded_large_button"
+            android:textColor="@color/white"
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingRight="20dp"
