@@ -11,6 +11,9 @@
 	<Button android:id="@+id/logout_button" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:layout_alignParentRight="true"
 		android:layout_centerVertical="true" android:onClick="onLogoutClick"
-		android:text="@string/logout_button" />
+		android:background="@drawable/rounded_logout_button"
+		android:text="@string/logout_button"
+		android:padding="10dp"
+		android:layout_marginRight="5dp" />
 
 </RelativeLayout>

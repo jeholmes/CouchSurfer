@@ -9,7 +9,7 @@ package org.apache.cordova;
 public final class R {
 	public static final class drawable {
 		public static final int icon = 0x7f020060;
-		public static final int splash = 0x7f020080;
+		public static final int splash = 0x7f020082;
 	}
 	public static final class id {
 	}

@@ -25,19 +25,25 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
+    // User variables
     double userLat;
     double userLng;
     String userAddress = "";
 
+    // Arrays for transforming returned properties into markers
+    private Property[] nearestProperties;
     private Marker[] markers;
-    private Properties[] nearestProperties;
-    private int total;
+    private int totalProperties;
 
-    @SuppressLint("InflateParams")
+    /**
+     * Custom marker info window definition
+     */
+    @SuppressLint("InflateParams") // To pass null to layout inflater
     class MyInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
         private final View myContentsView;
 
+        // Set info window layout to be layout file
         MyInfoWindowAdapter(){
             myContentsView = getLayoutInflater().inflate(R.layout.windowlayout, null);
         }
@@ -45,6 +51,7 @@ public class MapsActivity extends FragmentActivity {
         @Override
         public View getInfoContents(Marker marker) {
 
+            // Get information from marker array
             final String title = marker.getTitle();
             final String[] lines = marker.getSnippet().split("\n");
 
@@ -53,8 +60,10 @@ public class MapsActivity extends FragmentActivity {
             tvTitle.setText(title);
             TextView tvSnippet = ((TextView)myContentsView.findViewById(R.id.snippet));
 
+            // Extract vacancy from snippet string
             String vacancy = lines[1];
 
+            // Set snippet background based on vacancy
             switch (vacancy) {
                 case "FULL": tvSnippet.setBackground(getResources().getDrawable(R.drawable.rounded_vacancy_red));
                     break;
@@ -65,6 +74,8 @@ public class MapsActivity extends FragmentActivity {
                 default: tvSnippet.setBackground(getResources().getDrawable(R.drawable.rounded_vacancy_blue));
                     break;
             }
+
+            // Set snippet content to be just the relevant information
             tvSnippet.setText(lines[0]);
 
             return myContentsView;
@@ -74,11 +85,11 @@ public class MapsActivity extends FragmentActivity {
         public View getInfoWindow(Marker marker) {
             return null;
         }
-
-
     }
 
-
+    /**
+     * Override back button to start a new MainActivity with the address bundled as an extra
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
@@ -92,22 +103,30 @@ public class MapsActivity extends FragmentActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * onCreate method initializes activity variables
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map);
 
+        // Get intent extras
         Bundle extras = getIntent().getExtras();
-        total = extras.getInt("total");
-        markers = new Marker[total];
-        nearestProperties = new Properties[total];
 
+        // Extract how many properties returned and initialize arrays accordingly
+        totalProperties = extras.getInt("total");
+        markers = new Marker[totalProperties];
+        nearestProperties = new Property[totalProperties];
+
+        // Extract user variables
         userLat = extras.getDouble("lat");
         userLng = extras.getDouble("lng");
         userAddress = extras.getString("address");
 
-        for (int i = 0; i < total; i++) {
-            nearestProperties[i] = new Properties(extras.getString(i + "-name"),
+        // Extract property information and populate properties array
+        for (int i = 0; i < totalProperties; i++) {
+            nearestProperties[i] = new Property(extras.getString(i + "-name"),
                     extras.getString(i + "-id"),
                     extras.getDouble(i + "-lat"),
                     extras.getDouble(i + "-lng"),
@@ -159,10 +178,9 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        //mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-
         mMap.setInfoWindowAdapter(new MyInfoWindowAdapter());
 
+        // Info window click starts DetailActivity with property information bundled
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
@@ -176,21 +194,20 @@ public class MapsActivity extends FragmentActivity {
                 intent.putExtra("propertyId", lines[2]);
                 intent.putExtra("total", lines[3]);
                 intent.putExtra("avail", lines[4]);
-
                 intent.putExtra("lat", userLat);
                 intent.putExtra("lng", userLng);
+                intent.putExtra("address", userAddress);
 
                 startActivity(intent);
-                //finish();
             }
         });
 
-        for (int i = 0; i < total; i++) {
-
+        // Create map marker for each property included in intent extras
+        for (int i = 0; i < totalProperties; i++) {
             BitmapDescriptor markerColour;
-
             String vacancy;
 
+            // Set vacancy based on how many couches are available out of total
             if ( nearestProperties[i].available / nearestProperties[i].total == 0 ) {
                 vacancy = "FULL";
             } else if (nearestProperties[i].available / nearestProperties[i].total <= 0.5 ) {
@@ -201,6 +218,7 @@ public class MapsActivity extends FragmentActivity {
                 vacancy = "ERROR";
             }
 
+            // Set marker colour based on vacancy
             switch (vacancy) {
                 case "FULL": markerColour = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED);
                     break;
@@ -212,48 +230,53 @@ public class MapsActivity extends FragmentActivity {
                     break;
             }
 
+            // Build marker with information and add to map at property coordinates
             markers[i] = mMap.addMarker(new MarkerOptions()
                     .title(nearestProperties[i].name)
-                    .snippet("Couches Available: " + (int)nearestProperties[i].available + "/" + (int)nearestProperties[i].total + "\n" + vacancy + "\n" + nearestProperties[i].id + "\n" + nearestProperties[i].total + "\n" + nearestProperties[i].available)
+                    .snippet("Couches Available: " + (int)nearestProperties[i].available + "/" + (int)nearestProperties[i].total + "\n" +
+                            vacancy + "\n" +
+                            nearestProperties[i].id + "\n" +
+                            nearestProperties[i].total + "\n" +
+                            nearestProperties[i].available)
                     .position(new LatLng(nearestProperties[i].lat, nearestProperties[i].lng))
                     .icon(markerColour));
         }
 
+        // Check if location service is enabled
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            // If disabled, set user location to be the user coordinates
             mMap.setMyLocationEnabled(false);
-
-            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.mylocation))
+            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_mylocation))
                     .position(new LatLng(userLat, userLng)));
         } else {
+            // If enabled, set user location to the GPS change listener
             mMap.setMyLocationEnabled(true);
             mMap.setOnMyLocationChangeListener(myLocationChangeListener);
         }
 
+        // Set default map view to center on the user coordinates
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(userLat, userLng), 12.5f));
     }
 
+    /**
+     * Location change listener updates the user coordinates
+     */
     private GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
         @Override
         public void onMyLocationChange(Location location) {
             LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
-
-            /*Toast.makeText(MainActivity.this,
-                    "Current location: " + loc.latitude + loc.longitude,
-                    Toast.LENGTH_LONG).show();
-
-            if(mMap != null){
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
-                mMap.setOnMyLocationChangeListener(null);
-            }*/
 
             userLat = loc.latitude;
             userLng = loc.longitude;
         }
     };
 
-    class Properties {
+    /**
+     * Class definition for property object
+     */
+    class Property {
         public String name;
         public String id;
         public double lat;
@@ -261,7 +284,7 @@ public class MapsActivity extends FragmentActivity {
         public double available;
         public double total;
 
-        public Properties(String name, String id, double lat, double lng, double available, double total) {
+        public Property(String name, String id, double lat, double lng, double available, double total) {
             this.name = name;
             this.id = id;
             this.lat = lat;

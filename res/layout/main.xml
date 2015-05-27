@@ -36,7 +36,7 @@
 			android:onClick="onMyLocationClick"
 			android:contentDescription="@string/mylocation"
 			android:src="@drawable/ic_menu_mylocation"
-			android:background="@drawable/circle_button" />
+			android:background="@drawable/rounded_gps_button" />
 
 		<Space
 			android:layout_width="fill_parent"
@@ -82,6 +82,10 @@
 				android:src="@drawable/ic_menu_search"
 				android:background="@drawable/rounded_button" />
 		</LinearLayout>
+
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"></FrameLayout>
 
 	</LinearLayout>
 

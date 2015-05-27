@@ -349,7 +349,7 @@ available. Please contact the developer for assistance.</string>
     <string name="hello_world">Hello world!</string>
     <string name="lat_label">Latitude</string>
     <string name="lng_label">Longitude</string>
-    <string name="logout_button">Logout</string>
+    <string name="logout_button">SF Logout</string>
     <string name="map_button">Map</string>
     <string name="mylocation">My Location</string>
     <string name="name_label">Name</string>
