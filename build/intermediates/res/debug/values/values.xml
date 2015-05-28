@@ -317,7 +317,7 @@
     <eat-comment/>
     <string name="app_name"><b>CouchSurfer</b></string>
     <string name="app_package">com.jeholmes.couchsurf</string>
-    <string name="available_couches">Available Couches:</string>
+    <string name="available_couches">Available Couches: </string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.3.0/res/values/common_strings.xml -->
     <eat-comment/>
     <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>
@@ -355,7 +355,7 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/strings.xml -->
     <eat-comment/>
     <string name="connecting">Connecting…</string>
-    <string name="couches_label">Couches:</string>
+    <string name="couches_label">Couches: </string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.3.0/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
@@ -364,7 +364,7 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/strings.xml -->
     <eat-comment/>
     <string name="detail_button">Go</string>
-    <string name="email_label">Email:</string>
+    <string name="email_label">Email: </string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/CouchSurfer.external/cordova/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="go">Snap</string>
@@ -453,7 +453,7 @@ available. Please contact the developer for assistance.</string>
     <eat-comment/>
     <string name="title_activity_detail">Property</string>
     <string name="title_activity_maps">Map</string>
-    <string name="total_couches">Total Couches:</string>
+    <string name="total_couches">Total Couches: </string>
     <string name="update_button">Update</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.3.0/res/values/wallet_strings.xml -->
     <eat-comment/>
@@ -1838,4 +1838,9 @@ available. Please contact the developer for assistance.</string>
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="RtlOverlay.Widget.AppCompat.Toolbar.Button.Navigation"/>
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="spinner_style">
+    <item name="android:background">@drawable/custom_spinner</item>
+    </style>
 </resources>

@@ -8,7 +8,7 @@
         android:spinnerMode="dropdown"
         android:id="@+id/spinner"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_spinner"
+        style="@style/spinner_style"
         android:layout_margin="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" />

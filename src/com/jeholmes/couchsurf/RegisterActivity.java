@@ -305,11 +305,27 @@ public class RegisterActivity extends SalesforceActivity {
     /**
      * Displays alert dialog if fields are empty
      */
-    private void emptyField () {
+    private void emptyField (int flag) {
         loadingDialog.dismiss();
         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-        builder.setTitle("Incomplete Form");
-        builder.setMessage("Please enter values for all fields");
+        builder.setTitle("Please enter values for:");
+
+        // Build message body based on flag set for fields missing
+        String message = "";
+        if (flag >= 4) {
+            flag -= 4;
+            message += "- Name\n";
+        }
+        if (flag >= 2) {
+            flag -= 2;
+            message += "- Address\n";
+        }
+        if (flag == 1) {
+            message += "- Email\n";
+        }
+        message = message.substring(0,message.length()-1);
+
+        builder.setMessage(message);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
             }
@@ -358,7 +374,11 @@ public class RegisterActivity extends SalesforceActivity {
 
             // Check if fields have values and return fail if empty
             if (member.equals("") || address.equals("") || email.equals("")) {
-                return 2;
+                int returnValue = 1;
+                if (email.equals("")) returnValue += 1;
+                if (address.equals("")) returnValue += 2;
+                if (member.equals("")) returnValue += 4;
+                return returnValue;
             }
 
             // Add member
@@ -498,10 +518,10 @@ public class RegisterActivity extends SalesforceActivity {
 
                 // Else display alert dialog
                 queryFailed();
-            } else if (result == 2){
+            } else {
                 loadingDialog.dismiss();
 
-                emptyField();
+                emptyField(result-1);
             }
         }
     }
