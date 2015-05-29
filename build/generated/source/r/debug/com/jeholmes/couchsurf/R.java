@@ -1705,7 +1705,7 @@ containing a value of this type.
         public static final int dim_foreground_disabled_material_light=0x7f0d001f;
         public static final int dim_foreground_material_dark=0x7f0d0020;
         public static final int dim_foreground_material_light=0x7f0d0021;
-        public static final int gray=0x7f0d0022;
+        public static final int light_grey =0x7f0d0022;
         public static final int green=0x7f0d0023;
         public static final int highlighted_text_material_dark=0x7f0d0024;
         public static final int highlighted_text_material_light=0x7f0d0025;
