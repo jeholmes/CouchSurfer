@@ -368,10 +368,10 @@ public class MainActivity extends SalesforceActivity {
     private void queryFailed () {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("Connection Failed");
-        builder.setMessage("Could not query Salesforce");
+        builder.setMessage("Could not query Salesforce, please refresh login");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
+                SalesforceSDKManager.getInstance().logout(MainActivity.this);
             }
         });
         Dialog alertDialog = builder.create();

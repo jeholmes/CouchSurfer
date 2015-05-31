@@ -54,6 +54,9 @@
     <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/colours.xml -->
+    <eat-comment/>
+    <color name="dark_grey">#FF555555</color>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -62,7 +65,6 @@
     <color name="dim_foreground_material_light">#ff323232</color>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/colours.xml -->
     <eat-comment/>
-    <color name="gray">#FFBBBBBB</color>
     <color name="green">#FF29A629</color>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
@@ -70,6 +72,11 @@
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/colours.xml -->
+    <eat-comment/>
+    <color name="light_grey">#FFBBBBBB</color>
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/res/values/values.xml -->
+    <eat-comment/>
     <color name="link_text_material_dark">@color/material_deep_teal_200</color>
     <color name="link_text_material_light">@color/material_deep_teal_500</color>
     <color name="material_blue_grey_800">#ff37474f</color>
@@ -368,7 +375,7 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/build/intermediates/exploded-aar/CouchSurfer.external/cordova/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="go">Snap</string>
-    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/src/debug/res/values/google_maps_api.xml -->
+    <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/google_maps_api.xml -->
     <eat-comment/>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyDWbyVE_8HPRLrMKNcW-Jsuywj4Te1buxI
@@ -1841,6 +1848,9 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/C:/Users/Jon/Documents/GitHub/CouchSurfer/res/values/styles.xml -->
     <eat-comment/>
     <style name="spinner_style">
-    <item name="android:background">@drawable/custom_spinner</item>
+        <item name="android:background">@drawable/rounded_spinner</item>
+        <item name="android:divider">#FFFFFF</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
     </style>
 </resources>

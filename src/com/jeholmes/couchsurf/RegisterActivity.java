@@ -91,6 +91,7 @@ public class RegisterActivity extends SalesforceActivity {
         NumberPicker np = (NumberPicker) findViewById(R.id.couches);
         np.setMaxValue(10);
         np.setMinValue(1);
+        np.setWrapSelectorWheel(false);
     }
 
     /**
@@ -479,7 +480,7 @@ public class RegisterActivity extends SalesforceActivity {
             Log.v("update", "property id: " + propertyId);
 
             // Add couches
-            for (int j = 0; j < couches; i++) {
+            for (int j = 0; j < couches; j++) {
                 Map<String, Object> couchesFields = new HashMap<>();
                 couchesFields.put("Property__c", propertyId);
                 couchesFields.put("Email__c", email);

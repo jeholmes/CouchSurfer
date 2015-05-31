@@ -11,10 +11,10 @@ public final class R {
 		public static final int oauthScopes = 0x7f0c0000;
 	}
 	public static final class color {
-		public static final int sf__forgot_passcode_text = 0x7f0d003e;
-		public static final int sf__passcode_bg = 0x7f0d003f;
-		public static final int sf__passcode_error_text = 0x7f0d0040;
-		public static final int sf__passcode_layout_bg = 0x7f0d0041;
+		public static final int sf__forgot_passcode_text = 0x7f0d003f;
+		public static final int sf__passcode_bg = 0x7f0d0040;
+		public static final int sf__passcode_error_text = 0x7f0d0041;
+		public static final int sf__passcode_layout_bg = 0x7f0d0042;
 	}
 	public static final class dimen {
 		public static final int sf__button_font_size = 0x7f080044;
@@ -40,7 +40,7 @@ public final class R {
 		public static final int sf__server_picker_margin_top = 0x7f080058;
 	}
 	public static final class drawable {
-		public static final int icon = 0x7f020062;
+		public static final int icon = 0x7f020061;
 		public static final int sf__edit_icon = 0x7f020073;
 		public static final int sf__header_bg = 0x7f020074;
 		public static final int sf__header_drop_shadow = 0x7f020075;
@@ -62,28 +62,28 @@ public final class R {
 		public static final int splash = 0x7f020085;
 	}
 	public static final class id {
-		public static final int manage_space_layout = 0x7f0e008a;
-		public static final int sf__accounts_group = 0x7f0e0080;
-		public static final int sf__add_account_button = 0x7f0e0082;
-		public static final int sf__apply_button = 0x7f0e0086;
-		public static final int sf__auth_container_phone = 0x7f0e0088;
-		public static final int sf__cancel_button = 0x7f0e0087;
-		public static final int sf__layout_root = 0x7f0e0083;
-		public static final int sf__menu_clear_cookies = 0x7f0e0096;
-		public static final int sf__menu_clear_custom_url = 0x7f0e0094;
-		public static final int sf__menu_pick_server = 0x7f0e0095;
-		public static final int sf__menu_reload = 0x7f0e0097;
-		public static final int sf__oauth_webview = 0x7f0e0089;
-		public static final int sf__passcode_error = 0x7f0e008e;
-		public static final int sf__passcode_forgot = 0x7f0e008d;
-		public static final int sf__passcode_instructions = 0x7f0e008f;
-		public static final int sf__passcode_text = 0x7f0e008c;
-		public static final int sf__passcode_title = 0x7f0e008b;
-		public static final int sf__picker_custom_label = 0x7f0e0084;
-		public static final int sf__picker_custom_url = 0x7f0e0085;
-		public static final int sf__server_list_group = 0x7f0e0090;
-		public static final int sf__show_custom_url_edit = 0x7f0e0091;
-		public static final int sf__switcher_apply_button = 0x7f0e0081;
+		public static final int manage_space_layout = 0x7f0e008b;
+		public static final int sf__accounts_group = 0x7f0e0081;
+		public static final int sf__add_account_button = 0x7f0e0083;
+		public static final int sf__apply_button = 0x7f0e0087;
+		public static final int sf__auth_container_phone = 0x7f0e0089;
+		public static final int sf__cancel_button = 0x7f0e0088;
+		public static final int sf__layout_root = 0x7f0e0084;
+		public static final int sf__menu_clear_cookies = 0x7f0e0097;
+		public static final int sf__menu_clear_custom_url = 0x7f0e0095;
+		public static final int sf__menu_pick_server = 0x7f0e0096;
+		public static final int sf__menu_reload = 0x7f0e0098;
+		public static final int sf__oauth_webview = 0x7f0e008a;
+		public static final int sf__passcode_error = 0x7f0e008f;
+		public static final int sf__passcode_forgot = 0x7f0e008e;
+		public static final int sf__passcode_instructions = 0x7f0e0090;
+		public static final int sf__passcode_text = 0x7f0e008d;
+		public static final int sf__passcode_title = 0x7f0e008c;
+		public static final int sf__picker_custom_label = 0x7f0e0085;
+		public static final int sf__picker_custom_url = 0x7f0e0086;
+		public static final int sf__server_list_group = 0x7f0e0091;
+		public static final int sf__show_custom_url_edit = 0x7f0e0092;
+		public static final int sf__switcher_apply_button = 0x7f0e0082;
 	}
 	public static final class layout {
 		public static final int main = 0x7f03001d;

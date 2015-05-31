@@ -9,6 +9,7 @@
 		android:background="@drawable/rounded_logout_button"
 		android:text="@string/logout_button"
 		android:padding="10dp"
-		android:layout_marginEnd="5dp" />
+		android:layout_marginEnd="5dp"
+		android:textColor="#ff000000" />
 
 </RelativeLayout>

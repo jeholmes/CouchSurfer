@@ -11,6 +11,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -344,8 +345,28 @@ public class DetailActivity extends SalesforceActivity {
                     memberIds[i+1] = returnedMembers.get(i).id;
                     memberNames[i+1] = returnedMembers.get(i).name;
                 }
-                spinnerAdapter = new ArrayAdapter<>(DetailActivity.this, android.R.layout.simple_spinner_item, memberNames);
-                occupiedAdapter = new ArrayAdapter<>(DetailActivity.this, android.R.layout.simple_spinner_item, occupied);
+                spinnerAdapter = new ArrayAdapter<String>(DetailActivity.this, android.R.layout.simple_spinner_item, memberNames){
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View v = super.getView(position, convertView, parent);
+                        ((TextView) v).setTextColor(getResources().getColor(R.color.black));
+                        return v;
+                    }
+                    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                        View v = super.getDropDownView(position, convertView, parent);
+                        v.setBackgroundResource(R.drawable.rounded_spinner);
+                        v.setBackgroundColor(getResources().getColor(R.color.white));
+                        ((TextView) v).setTextColor(getResources().getColor(R.color.black));
+                        v.setPadding(5, 5, 5, 5);
+                        return v;
+                    }
+                };
+                occupiedAdapter = new ArrayAdapter<String>(DetailActivity.this, android.R.layout.simple_spinner_item, occupied){
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View v = super.getView(position, convertView, parent);
+                        ((TextView) v).setTextColor(getResources().getColor(R.color.black));
+                        return v;
+                    }
+                };
 
                 // Inflate spinner layout for each couch returned
                 LinearLayout item = (LinearLayout) findViewById(R.id.spinner_group);
