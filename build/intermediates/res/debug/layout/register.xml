@@ -48,7 +48,8 @@
                     android:padding="10dp"
                     android:background="@drawable/rounded_text_field"
                     android:inputType="text"
-                    android:textColor="#ff000000" />
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"/>
             </LinearLayout>
 
             <Space
@@ -78,7 +79,8 @@
                     android:padding="10dp"
                     android:background="@drawable/rounded_text_field"
                     android:inputType="textEmailAddress"
-                    android:textColor="#ff000000" />
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"/>
             </LinearLayout>
 
             <Space
@@ -108,7 +110,8 @@
                     android:padding="10dp"
                     android:background="@drawable/rounded_text_field"
                     android:inputType="text"
-                    android:textColor="#ff000000" />
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@null"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -160,7 +163,7 @@
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="5dp"
-                android:textSize="36sp"
+                android:textSize="24sp"
                 android:onClick="onUpdateClick"
                 android:textColor="@color/white" />
         </FrameLayout>

@@ -68,7 +68,8 @@
 				android:layout_gravity="center"
 				android:background="@drawable/rounded_address_field"
 				android:textColor="@color/black"
-				android:padding="10dp" />
+				android:padding="10dp"
+				android:textCursorDrawable="@null"/>
 
 			<ImageButton
 				android:id="@+id/search_button"
